@@ -228,11 +228,11 @@ namespace NT106.R14._1_Lab02_25521506
 
             string[,] monAns =
             {
-                { "Bún riêu", "bun-rieu.png", "1" },
-                { "Bún thịt nướng", "bun-thit-nuong.png", "2" },
-                { "Cơm tấm sườn trứng", "com-tam.png", "3" },
-                { "Phở", "pho.png", "1" },
-                { "Gỏi cuốn", "goi-cuon.png", "2" }
+                { "Bún riêu", "bun-rieu.jpg", "1" },
+                { "Bún thịt nướng", "bun-thit-nuong.jpg", "2" },
+                { "Cơm tấm sườn trứng", "com-tam.jpg", "3" },
+                { "Phở", "pho.jpg", "1" },
+                { "Gỏi cuốn", "goi-cuon.jpg", "2" }
             };
 
             for (int i = 0; i < monAns.GetLength(0); i++)
