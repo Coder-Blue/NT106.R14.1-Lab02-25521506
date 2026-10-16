@@ -18,5 +18,11 @@ namespace NT106.R14._1_Lab02_25521506
             Lab02_Bai02 form = new Lab02_Bai02();
             form.Show();
         }
+
+        private void btnBai3_Click(object sender, EventArgs e)
+        {
+            Lab02_Bai03 form = new Lab02_Bai03();
+            form.Show();
+        }
     }
 }
