@@ -2,15 +2,8 @@ namespace NT106.R14._1_Lab02_25521506
 {
     partial class FormMenu
     {
-        /// <summary>
-        ///  Required designer variable.
-        /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
-        ///  Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -22,10 +15,6 @@ namespace NT106.R14._1_Lab02_25521506
 
         #region Windows Form Designer generated code
 
-        /// <summary>
-        ///  Required method for Designer support - do not modify
-        ///  the contents of this method with the code editor.
-        /// </summary>
         private void InitializeComponent()
         {
             lblTieuDe = new Label();
@@ -39,9 +28,6 @@ namespace NT106.R14._1_Lab02_25521506
             btnBai7 = new Button();
             tplBai.SuspendLayout();
             SuspendLayout();
-            // 
-            // lblTieuDe
-            // 
             lblTieuDe.AutoSize = true;
             lblTieuDe.Dock = DockStyle.Top;
             lblTieuDe.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -51,9 +37,6 @@ namespace NT106.R14._1_Lab02_25521506
             lblTieuDe.Size = new Size(472, 47);
             lblTieuDe.TabIndex = 0;
             lblTieuDe.Text = "NT106.R14.1 - Lab02 - SV 25521506";
-            // 
-            // tplBai
-            // 
             tplBai.ColumnCount = 2;
             tplBai.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
             tplBai.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
@@ -76,9 +59,6 @@ namespace NT106.R14._1_Lab02_25521506
             tplBai.RowStyles.Add(new RowStyle(SizeType.Absolute, 65F));
             tplBai.Size = new Size(472, 253);
             tplBai.TabIndex = 1;
-            // 
-            // btnBai1
-            // 
             btnBai1.Dock = DockStyle.Fill;
             btnBai1.Location = new Point(12, 0);
             btnBai1.Margin = new Padding(3, 3, 3, 8);
@@ -88,9 +68,6 @@ namespace NT106.R14._1_Lab02_25521506
             btnBai1.Text = "Bài 1";
             btnBai1.UseVisualStyleBackColor = true;
             btnBai1.Click += btnBai1_Click;
-            // 
-            // btnBai2
-            // 
             btnBai2.Dock = DockStyle.Fill;
             btnBai2.Location = new Point(239, 0);
             btnBai2.Margin = new Padding(3, 3, 3, 8);
@@ -100,9 +77,6 @@ namespace NT106.R14._1_Lab02_25521506
             btnBai2.Text = "Bài 2";
             btnBai2.UseVisualStyleBackColor = true;
             btnBai2.Click += btnBai2_Click;
-            // 
-            // btnBai3
-            // 
             btnBai3.Dock = DockStyle.Fill;
             btnBai3.Location = new Point(12, 65);
             btnBai3.Margin = new Padding(3, 3, 3, 8);
@@ -112,9 +86,6 @@ namespace NT106.R14._1_Lab02_25521506
             btnBai3.Text = "Bài 3";
             btnBai3.UseVisualStyleBackColor = true;
             btnBai3.Click += btnBai3_Click;
-            // 
-            // btnBai4
-            // 
             btnBai4.Dock = DockStyle.Fill;
             btnBai4.Location = new Point(239, 65);
             btnBai4.Margin = new Padding(3, 3, 3, 8);
@@ -124,9 +95,6 @@ namespace NT106.R14._1_Lab02_25521506
             btnBai4.Text = "Bài 4";
             btnBai4.UseVisualStyleBackColor = true;
             btnBai4.Click += btnBai4_Click;
-            // 
-            // btnBai5
-            // 
             btnBai5.Dock = DockStyle.Fill;
             btnBai5.Location = new Point(12, 130);
             btnBai5.Margin = new Padding(3, 3, 3, 8);
@@ -135,9 +103,6 @@ namespace NT106.R14._1_Lab02_25521506
             btnBai5.TabIndex = 4;
             btnBai5.Text = "Bài 5";
             btnBai5.UseVisualStyleBackColor = true;
-            // 
-            // btnBai6
-            // 
             btnBai6.Dock = DockStyle.Fill;
             btnBai6.Location = new Point(239, 130);
             btnBai6.Margin = new Padding(3, 3, 3, 8);
@@ -146,9 +111,6 @@ namespace NT106.R14._1_Lab02_25521506
             btnBai6.TabIndex = 5;
             btnBai6.Text = "Bài 6";
             btnBai6.UseVisualStyleBackColor = true;
-            // 
-            // btnBai7
-            // 
             btnBai7.Dock = DockStyle.Fill;
             btnBai7.Location = new Point(12, 195);
             btnBai7.Margin = new Padding(3, 3, 3, 8);
@@ -157,9 +119,6 @@ namespace NT106.R14._1_Lab02_25521506
             btnBai7.TabIndex = 6;
             btnBai7.Text = "Bài 7";
             btnBai7.UseVisualStyleBackColor = true;
-            // 
-            // FormMenu
-            // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(472, 300);

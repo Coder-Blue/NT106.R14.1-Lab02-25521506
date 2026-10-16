@@ -1,7 +1,3 @@
-using System;
-using System.IO;
-using System.Windows.Forms;
-
 namespace NT106.R14._1_Lab02_25521506
 {
     public partial class Lab02_Bai02 : Form
@@ -18,66 +14,48 @@ namespace NT106.R14._1_Lab02_25521506
                 ofd.Title = "Chọn file văn bản";
                 ofd.Filter = "Text Files (*.txt)|*.txt|All Files (*.*)|*.*";
 
-                if (ofd.ShowDialog() == DialogResult.OK)
+                if (ofd.ShowDialog() != DialogResult.OK)
                 {
-                    try
-                    {
-                        // Lấy tên file thông qua SafeFileName của OpenFileDialog
-                        string fileName = ofd.SafeFileName;
+                    return;
+                }
 
-                        // Mở luồng đọc FileStream và sử dụng StreamReader
-                        using (FileStream fs = new FileStream(ofd.FileName, FileMode.Open, FileAccess.Read))
-                        {
-                            // Lấy URL / đường dẫn thông qua Name của FileStream
-                            string url = fs.Name;
-                            long fileSize = fs.Length;
+                try
+                {
+                    string tenFile = ofd.SafeFileName;
+                    string duongDan = ofd.FileName;
+                    long kichThuoc = new FileInfo(duongDan).Length;
+                    string noiDung = File.ReadAllText(duongDan);
 
-                            string content;
-                            using (StreamReader sr = new StreamReader(fs))
-                            {
-                                content = sr.ReadToEnd();
-                            }
+                    txtTenFile.Text = tenFile;
+                    txtKichThuoc.Text = $"{kichThuoc} bytes";
+                    txtUrl.Text = duongDan;
+                    txtSoDong.Text = DemSoDong(noiDung).ToString();
+                    txtSoTu.Text = DemSoTu(noiDung).ToString();
+                    txtSoKyTu.Text = noiDung.Length.ToString();
+                    rtbThongTin.Text = noiDung;
 
-                            // Đếm số dòng, số từ, số ký tự
-                            int lineCount = 0;
-                            int wordCount = 0;
-                            int charCount = content.Length;
-
-                            if (!string.IsNullOrEmpty(content))
-                            {
-                                using (StringReader strReader = new StringReader(content))
-                                {
-                                    while (strReader.ReadLine() != null)
-                                    {
-                                        lineCount++;
-                                    }
-                                }
-
-                                string[] words = content.Split(
-                                    new char[] { ' ', '\t', '\r', '\n' },
-                                    StringSplitOptions.RemoveEmptyEntries
-                                );
-                                wordCount = words.Length;
-                            }
-
-                            // Hiển thị thông tin lên giao diện
-                            txtTenFile.Text = fileName;
-                            txtKichThuoc.Text = $"{fileSize} bytes";
-                            txtUrl.Text = url;
-                            txtSoDong.Text = lineCount.ToString();
-                            txtSoTu.Text = wordCount.ToString();
-                            txtSoKyTu.Text = charCount.ToString();
-                            rtbThongTin.Text = content;
-
-                            lblTrangThai.Text = $"Đã tải: {fileName}";
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show($"Lỗi khi đọc file: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
+                    lblTrangThai.Text = $"Đã tải: {tenFile}";
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Lỗi khi đọc file: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
+
+        private static int DemSoDong(string noiDung)
+        {
+            if (noiDung.Length == 0)
+            {
+                return 0;
+            }
+
+            string chuanHoa = noiDung.Replace("\r\n", "\n").Replace('\r', '\n');
+            int soDong = chuanHoa.Split('\n').Length;
+            return chuanHoa.EndsWith("\n") ? soDong - 1 : soDong;
+        }
+
+        private static int DemSoTu(string noiDung) =>
+            noiDung.Split(new[] { ' ', '\t', '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries).Length;
     }
 }

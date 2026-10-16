@@ -7,28 +7,12 @@ namespace NT106.R14._1_Lab02_25521506
             InitializeComponent();
         }
 
-        private void btnBai1_Click(object sender, EventArgs e)
-        {
-            Lab02_Bai01 form = new Lab02_Bai01();
-            form.Show();
-        }
+        private void btnBai1_Click(object sender, EventArgs e) => new Lab02_Bai01().Show();
 
-        private void btnBai2_Click(object sender, EventArgs e)
-        {
-            Lab02_Bai02 form = new Lab02_Bai02();
-            form.Show();
-        }
+        private void btnBai2_Click(object sender, EventArgs e) => new Lab02_Bai02().Show();
 
-        private void btnBai3_Click(object sender, EventArgs e)
-        {
-            Lab02_Bai03 form = new Lab02_Bai03();
-            form.Show();
-        }
+        private void btnBai3_Click(object sender, EventArgs e) => new Lab02_Bai03().Show();
 
-        private void btnBai4_Click(object sender, EventArgs e)
-        {
-            Lab02_Bai04 form = new Lab02_Bai04();
-            form.Show();
-        }
+        private void btnBai4_Click(object sender, EventArgs e) => new Lab02_Bai04().Show();
     }
 }

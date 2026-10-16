@@ -2,15 +2,8 @@ namespace NT106.R14._1_Lab02_25521506
 {
     partial class Lab02_Bai03
     {
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
-        /// Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -22,10 +15,6 @@ namespace NT106.R14._1_Lab02_25521506
 
         #region Windows Form Designer generated code
 
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
         private void InitializeComponent()
         {
             pnlBen = new Panel();
@@ -36,9 +25,6 @@ namespace NT106.R14._1_Lab02_25521506
             rtbThongTin = new RichTextBox();
             pnlBen.SuspendLayout();
             SuspendLayout();
-            // 
-            // pnlBen
-            // 
             pnlBen.Controls.Add(lblTrangThai);
             pnlBen.Controls.Add(btnGhiFile);
             pnlBen.Controls.Add(btnDocFile);
@@ -49,9 +35,6 @@ namespace NT106.R14._1_Lab02_25521506
             pnlBen.Padding = new Padding(12);
             pnlBen.Size = new Size(200, 500);
             pnlBen.TabIndex = 0;
-            // 
-            // lblTrangThai
-            // 
             lblTrangThai.Dock = DockStyle.Bottom;
             lblTrangThai.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblTrangThai.Location = new Point(12, 456);
@@ -59,9 +42,6 @@ namespace NT106.R14._1_Lab02_25521506
             lblTrangThai.Size = new Size(176, 32);
             lblTrangThai.TabIndex = 3;
             lblTrangThai.Text = "input3.txt → output3.txt";
-            // 
-            // btnGhiFile
-            // 
             btnGhiFile.Dock = DockStyle.Top;
             btnGhiFile.Location = new Point(12, 96);
             btnGhiFile.Name = "btnGhiFile";
@@ -70,9 +50,6 @@ namespace NT106.R14._1_Lab02_25521506
             btnGhiFile.Text = "Ghi file (output3.txt)";
             btnGhiFile.UseVisualStyleBackColor = true;
             btnGhiFile.Click += btnGhiFile_Click;
-            // 
-            // btnDocFile
-            // 
             btnDocFile.Dock = DockStyle.Top;
             btnDocFile.Location = new Point(12, 51);
             btnDocFile.Name = "btnDocFile";
@@ -81,9 +58,6 @@ namespace NT106.R14._1_Lab02_25521506
             btnDocFile.Text = "Đọc file (input3.txt)";
             btnDocFile.UseVisualStyleBackColor = true;
             btnDocFile.Click += btnDocFile_Click;
-            // 
-            // lblTieuDe
-            // 
             lblTieuDe.AutoSize = true;
             lblTieuDe.Dock = DockStyle.Top;
             lblTieuDe.Font = new Font("Microsoft Sans Serif", 10.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -93,9 +67,6 @@ namespace NT106.R14._1_Lab02_25521506
             lblTieuDe.Size = new Size(174, 39);
             lblTieuDe.TabIndex = 0;
             lblTieuDe.Text = "Bài 3 - Đọc, Ghi & Tính toán";
-            // 
-            // rtbThongTin
-            // 
             rtbThongTin.Dock = DockStyle.Fill;
             rtbThongTin.Location = new Point(200, 0);
             rtbThongTin.Name = "rtbThongTin";
@@ -103,9 +74,6 @@ namespace NT106.R14._1_Lab02_25521506
             rtbThongTin.Size = new Size(620, 500);
             rtbThongTin.TabIndex = 1;
             rtbThongTin.Text = "";
-            // 
-            // Lab02_Bai03
-            // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(820, 500);
