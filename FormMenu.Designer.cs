@@ -123,6 +123,7 @@ namespace NT106.R14._1_Lab02_25521506
             btnBai4.TabIndex = 3;
             btnBai4.Text = "Bài 4";
             btnBai4.UseVisualStyleBackColor = true;
+            btnBai4.Click += btnBai4_Click;
             // 
             // btnBai5
             // 

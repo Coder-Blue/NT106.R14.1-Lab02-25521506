@@ -1,0 +1,476 @@
+namespace NT106.R14._1_Lab02_25521506
+{
+    partial class Lab02_Bai04
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            lblTieuDe = new Label();
+            grpNhap = new GroupBox();
+            btnThem = new Button();
+            btnGhiFile = new Button();
+            txtDiemMon3Nhap = new TextBox();
+            lblDiemMon3Nhap = new Label();
+            txtDiemMon2Nhap = new TextBox();
+            lblDiemMon2Nhap = new Label();
+            txtDiemMon1Nhap = new TextBox();
+            lblDiemMon1Nhap = new Label();
+            txtDienThoaiNhap = new TextBox();
+            lblDienThoaiNhap = new Label();
+            txtMssvNhap = new TextBox();
+            lblMssvNhap = new Label();
+            txtHoTenNhap = new TextBox();
+            lblHoTenNhap = new Label();
+            grpXuat = new GroupBox();
+            lblSoTrang = new Label();
+            btnNext = new Button();
+            btnBack = new Button();
+            txtDiemTbXuat = new TextBox();
+            lblDiemTbXuat = new Label();
+            txtDiemMon3Xuat = new TextBox();
+            lblDiemMon3Xuat = new Label();
+            txtDiemMon2Xuat = new TextBox();
+            lblDiemMon2Xuat = new Label();
+            txtDiemMon1Xuat = new TextBox();
+            lblDiemMon1Xuat = new Label();
+            txtDienThoaiXuat = new TextBox();
+            lblDienThoaiXuat = new Label();
+            txtMssvXuat = new TextBox();
+            lblMssvXuat = new Label();
+            txtHoTenXuat = new TextBox();
+            lblHoTenXuat = new Label();
+            btnDocFile = new Button();
+            lblTrangThai = new Label();
+            grpNhap.SuspendLayout();
+            grpXuat.SuspendLayout();
+            SuspendLayout();
+            // 
+            // lblTieuDe
+            // 
+            lblTieuDe.AutoSize = true;
+            lblTieuDe.Dock = DockStyle.Top;
+            lblTieuDe.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblTieuDe.Location = new Point(12, 12);
+            lblTieuDe.Name = "lblTieuDe";
+            lblTieuDe.Padding = new Padding(0, 0, 0, 12);
+            lblTieuDe.Size = new Size(335, 30);
+            lblTieuDe.TabIndex = 0;
+            lblTieuDe.Text = "Bài 4 - Đọc và Ghi file sử dụng JsonSerializer";
+            // 
+            // grpNhap
+            // 
+            grpNhap.Controls.Add(btnThem);
+            grpNhap.Controls.Add(btnGhiFile);
+            grpNhap.Controls.Add(txtDiemMon3Nhap);
+            grpNhap.Controls.Add(lblDiemMon3Nhap);
+            grpNhap.Controls.Add(txtDiemMon2Nhap);
+            grpNhap.Controls.Add(lblDiemMon2Nhap);
+            grpNhap.Controls.Add(txtDiemMon1Nhap);
+            grpNhap.Controls.Add(lblDiemMon1Nhap);
+            grpNhap.Controls.Add(txtDienThoaiNhap);
+            grpNhap.Controls.Add(lblDienThoaiNhap);
+            grpNhap.Controls.Add(txtMssvNhap);
+            grpNhap.Controls.Add(lblMssvNhap);
+            grpNhap.Controls.Add(txtHoTenNhap);
+            grpNhap.Controls.Add(lblHoTenNhap);
+            grpNhap.Location = new Point(15, 48);
+            grpNhap.Name = "grpNhap";
+            grpNhap.Size = new Size(380, 400);
+            grpNhap.TabIndex = 1;
+            grpNhap.TabStop = false;
+            grpNhap.Text = "Nhập thông tin Sinh viên";
+            // 
+            // btnThem
+            // 
+            btnThem.Location = new Point(20, 335);
+            btnThem.Name = "btnThem";
+            btnThem.Size = new Size(160, 42);
+            btnThem.TabIndex = 13;
+            btnThem.Text = "Thêm vào danh sách";
+            btnThem.UseVisualStyleBackColor = true;
+            btnThem.Click += btnThem_Click;
+            // 
+            // btnGhiFile
+            // 
+            btnGhiFile.Location = new Point(195, 335);
+            btnGhiFile.Name = "btnGhiFile";
+            btnGhiFile.Size = new Size(165, 42);
+            btnGhiFile.TabIndex = 12;
+            btnGhiFile.Text = "Ghi vào input4.txt";
+            btnGhiFile.UseVisualStyleBackColor = true;
+            btnGhiFile.Click += btnGhiFile_Click;
+            // 
+            // txtDiemMon3Nhap
+            // 
+            txtDiemMon3Nhap.Location = new Point(125, 275);
+            txtDiemMon3Nhap.Name = "txtDiemMon3Nhap";
+            txtDiemMon3Nhap.Size = new Size(235, 23);
+            txtDiemMon3Nhap.TabIndex = 11;
+            // 
+            // lblDiemMon3Nhap
+            // 
+            lblDiemMon3Nhap.Location = new Point(15, 275);
+            lblDiemMon3Nhap.Name = "lblDiemMon3Nhap";
+            lblDiemMon3Nhap.Size = new Size(100, 23);
+            lblDiemMon3Nhap.TabIndex = 10;
+            lblDiemMon3Nhap.Text = "Điểm môn 3:";
+            lblDiemMon3Nhap.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // txtDiemMon2Nhap
+            // 
+            txtDiemMon2Nhap.Location = new Point(125, 230);
+            txtDiemMon2Nhap.Name = "txtDiemMon2Nhap";
+            txtDiemMon2Nhap.Size = new Size(235, 23);
+            txtDiemMon2Nhap.TabIndex = 9;
+            // 
+            // lblDiemMon2Nhap
+            // 
+            lblDiemMon2Nhap.Location = new Point(15, 230);
+            lblDiemMon2Nhap.Name = "lblDiemMon2Nhap";
+            lblDiemMon2Nhap.Size = new Size(100, 23);
+            lblDiemMon2Nhap.TabIndex = 8;
+            lblDiemMon2Nhap.Text = "Điểm môn 2:";
+            lblDiemMon2Nhap.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // txtDiemMon1Nhap
+            // 
+            txtDiemMon1Nhap.Location = new Point(125, 185);
+            txtDiemMon1Nhap.Name = "txtDiemMon1Nhap";
+            txtDiemMon1Nhap.Size = new Size(235, 23);
+            txtDiemMon1Nhap.TabIndex = 7;
+            // 
+            // lblDiemMon1Nhap
+            // 
+            lblDiemMon1Nhap.Location = new Point(15, 185);
+            lblDiemMon1Nhap.Name = "lblDiemMon1Nhap";
+            lblDiemMon1Nhap.Size = new Size(100, 23);
+            lblDiemMon1Nhap.TabIndex = 6;
+            lblDiemMon1Nhap.Text = "Điểm môn 1:";
+            lblDiemMon1Nhap.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // txtDienThoaiNhap
+            // 
+            txtDienThoaiNhap.Location = new Point(125, 140);
+            txtDienThoaiNhap.Name = "txtDienThoaiNhap";
+            txtDienThoaiNhap.Size = new Size(235, 23);
+            txtDienThoaiNhap.TabIndex = 5;
+            // 
+            // lblDienThoaiNhap
+            // 
+            lblDienThoaiNhap.Location = new Point(15, 140);
+            lblDienThoaiNhap.Name = "lblDienThoaiNhap";
+            lblDienThoaiNhap.Size = new Size(100, 23);
+            lblDienThoaiNhap.TabIndex = 4;
+            lblDienThoaiNhap.Text = "Điện thoại:";
+            lblDienThoaiNhap.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // txtMssvNhap
+            // 
+            txtMssvNhap.Location = new Point(125, 95);
+            txtMssvNhap.Name = "txtMssvNhap";
+            txtMssvNhap.Size = new Size(235, 23);
+            txtMssvNhap.TabIndex = 3;
+            // 
+            // lblMssvNhap
+            // 
+            lblMssvNhap.Location = new Point(15, 95);
+            lblMssvNhap.Name = "lblMssvNhap";
+            lblMssvNhap.Size = new Size(100, 23);
+            lblMssvNhap.TabIndex = 2;
+            lblMssvNhap.Text = "MSSV:";
+            lblMssvNhap.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // txtHoTenNhap
+            // 
+            txtHoTenNhap.Location = new Point(125, 50);
+            txtHoTenNhap.Name = "txtHoTenNhap";
+            txtHoTenNhap.Size = new Size(235, 23);
+            txtHoTenNhap.TabIndex = 1;
+            // 
+            // lblHoTenNhap
+            // 
+            lblHoTenNhap.Location = new Point(15, 50);
+            lblHoTenNhap.Name = "lblHoTenNhap";
+            lblHoTenNhap.Size = new Size(100, 23);
+            lblHoTenNhap.TabIndex = 0;
+            lblHoTenNhap.Text = "Họ và tên:";
+            lblHoTenNhap.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // grpXuat
+            // 
+            grpXuat.Controls.Add(lblSoTrang);
+            grpXuat.Controls.Add(btnNext);
+            grpXuat.Controls.Add(btnBack);
+            grpXuat.Controls.Add(txtDiemTbXuat);
+            grpXuat.Controls.Add(lblDiemTbXuat);
+            grpXuat.Controls.Add(txtDiemMon3Xuat);
+            grpXuat.Controls.Add(lblDiemMon3Xuat);
+            grpXuat.Controls.Add(txtDiemMon2Xuat);
+            grpXuat.Controls.Add(lblDiemMon2Xuat);
+            grpXuat.Controls.Add(txtDiemMon1Xuat);
+            grpXuat.Controls.Add(lblDiemMon1Xuat);
+            grpXuat.Controls.Add(txtDienThoaiXuat);
+            grpXuat.Controls.Add(lblDienThoaiXuat);
+            grpXuat.Controls.Add(txtMssvXuat);
+            grpXuat.Controls.Add(lblMssvXuat);
+            grpXuat.Controls.Add(txtHoTenXuat);
+            grpXuat.Controls.Add(lblHoTenXuat);
+            grpXuat.Controls.Add(btnDocFile);
+            grpXuat.Location = new Point(415, 48);
+            grpXuat.Name = "grpXuat";
+            grpXuat.Size = new Size(390, 400);
+            grpXuat.TabIndex = 2;
+            grpXuat.TabStop = false;
+            grpXuat.Text = "Thông tin Sinh viên (từ file output4.txt)";
+            // 
+            // lblSoTrang
+            // 
+            lblSoTrang.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblSoTrang.Location = new Point(155, 345);
+            lblSoTrang.Name = "lblSoTrang";
+            lblSoTrang.Size = new Size(80, 32);
+            lblSoTrang.TabIndex = 17;
+            lblSoTrang.Text = "0 / 0";
+            lblSoTrang.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // btnNext
+            // 
+            btnNext.Location = new Point(245, 345);
+            btnNext.Name = "btnNext";
+            btnNext.Size = new Size(125, 32);
+            btnNext.TabIndex = 16;
+            btnNext.Text = "Next >";
+            btnNext.UseVisualStyleBackColor = true;
+            btnNext.Click += btnNext_Click;
+            // 
+            // btnBack
+            // 
+            btnBack.Location = new Point(20, 345);
+            btnBack.Name = "btnBack";
+            btnBack.Size = new Size(125, 32);
+            btnBack.TabIndex = 15;
+            btnBack.Text = "< Back";
+            btnBack.UseVisualStyleBackColor = true;
+            btnBack.Click += btnBack_Click;
+            // 
+            // txtDiemTbXuat
+            // 
+            txtDiemTbXuat.Location = new Point(135, 300);
+            txtDiemTbXuat.Name = "txtDiemTbXuat";
+            txtDiemTbXuat.ReadOnly = true;
+            txtDiemTbXuat.Size = new Size(235, 23);
+            txtDiemTbXuat.TabIndex = 14;
+            // 
+            // lblDiemTbXuat
+            // 
+            lblDiemTbXuat.Location = new Point(15, 300);
+            lblDiemTbXuat.Name = "lblDiemTbXuat";
+            lblDiemTbXuat.Size = new Size(110, 23);
+            lblDiemTbXuat.TabIndex = 13;
+            lblDiemTbXuat.Text = "Điểm trung bình:";
+            lblDiemTbXuat.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // txtDiemMon3Xuat
+            // 
+            txtDiemMon3Xuat.Location = new Point(135, 260);
+            txtDiemMon3Xuat.Name = "txtDiemMon3Xuat";
+            txtDiemMon3Xuat.ReadOnly = true;
+            txtDiemMon3Xuat.Size = new Size(235, 23);
+            txtDiemMon3Xuat.TabIndex = 12;
+            // 
+            // lblDiemMon3Xuat
+            // 
+            lblDiemMon3Xuat.Location = new Point(15, 260);
+            lblDiemMon3Xuat.Name = "lblDiemMon3Xuat";
+            lblDiemMon3Xuat.Size = new Size(110, 23);
+            lblDiemMon3Xuat.TabIndex = 11;
+            lblDiemMon3Xuat.Text = "Điểm môn 3:";
+            lblDiemMon3Xuat.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // txtDiemMon2Xuat
+            // 
+            txtDiemMon2Xuat.Location = new Point(135, 220);
+            txtDiemMon2Xuat.Name = "txtDiemMon2Xuat";
+            txtDiemMon2Xuat.ReadOnly = true;
+            txtDiemMon2Xuat.Size = new Size(235, 23);
+            txtDiemMon2Xuat.TabIndex = 10;
+            // 
+            // lblDiemMon2Xuat
+            // 
+            lblDiemMon2Xuat.Location = new Point(15, 220);
+            lblDiemMon2Xuat.Name = "lblDiemMon2Xuat";
+            lblDiemMon2Xuat.Size = new Size(110, 23);
+            lblDiemMon2Xuat.TabIndex = 9;
+            lblDiemMon2Xuat.Text = "Điểm môn 2:";
+            lblDiemMon2Xuat.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // txtDiemMon1Xuat
+            // 
+            txtDiemMon1Xuat.Location = new Point(135, 180);
+            txtDiemMon1Xuat.Name = "txtDiemMon1Xuat";
+            txtDiemMon1Xuat.ReadOnly = true;
+            txtDiemMon1Xuat.Size = new Size(235, 23);
+            txtDiemMon1Xuat.TabIndex = 8;
+            // 
+            // lblDiemMon1Xuat
+            // 
+            lblDiemMon1Xuat.Location = new Point(15, 180);
+            lblDiemMon1Xuat.Name = "lblDiemMon1Xuat";
+            lblDiemMon1Xuat.Size = new Size(110, 23);
+            lblDiemMon1Xuat.TabIndex = 7;
+            lblDiemMon1Xuat.Text = "Điểm môn 1:";
+            lblDiemMon1Xuat.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // txtDienThoaiXuat
+            // 
+            txtDienThoaiXuat.Location = new Point(135, 140);
+            txtDienThoaiXuat.Name = "txtDienThoaiXuat";
+            txtDienThoaiXuat.ReadOnly = true;
+            txtDienThoaiXuat.Size = new Size(235, 23);
+            txtDienThoaiXuat.TabIndex = 6;
+            // 
+            // lblDienThoaiXuat
+            // 
+            lblDienThoaiXuat.Location = new Point(15, 140);
+            lblDienThoaiXuat.Name = "lblDienThoaiXuat";
+            lblDienThoaiXuat.Size = new Size(110, 23);
+            lblDienThoaiXuat.TabIndex = 5;
+            lblDienThoaiXuat.Text = "Điện thoại:";
+            lblDienThoaiXuat.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // txtMssvXuat
+            // 
+            txtMssvXuat.Location = new Point(135, 100);
+            txtMssvXuat.Name = "txtMssvXuat";
+            txtMssvXuat.ReadOnly = true;
+            txtMssvXuat.Size = new Size(235, 23);
+            txtMssvXuat.TabIndex = 4;
+            // 
+            // lblMssvXuat
+            // 
+            lblMssvXuat.Location = new Point(15, 100);
+            lblMssvXuat.Name = "lblMssvXuat";
+            lblMssvXuat.Size = new Size(110, 23);
+            lblMssvXuat.TabIndex = 3;
+            lblMssvXuat.Text = "MSSV:";
+            lblMssvXuat.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // txtHoTenXuat
+            // 
+            txtHoTenXuat.Location = new Point(135, 60);
+            txtHoTenXuat.Name = "txtHoTenXuat";
+            txtHoTenXuat.ReadOnly = true;
+            txtHoTenXuat.Size = new Size(235, 23);
+            txtHoTenXuat.TabIndex = 2;
+            // 
+            // lblHoTenXuat
+            // 
+            lblHoTenXuat.Location = new Point(15, 60);
+            lblHoTenXuat.Name = "lblHoTenXuat";
+            lblHoTenXuat.Size = new Size(110, 23);
+            lblHoTenXuat.TabIndex = 1;
+            lblHoTenXuat.Text = "Họ và tên:";
+            lblHoTenXuat.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // btnDocFile
+            // 
+            btnDocFile.Location = new Point(15, 20);
+            btnDocFile.Name = "btnDocFile";
+            btnDocFile.Size = new Size(355, 30);
+            btnDocFile.TabIndex = 0;
+            btnDocFile.Text = "Đọc file (output4.txt)";
+            btnDocFile.UseVisualStyleBackColor = true;
+            btnDocFile.Click += btnDocFile_Click;
+            // 
+            // lblTrangThai
+            // 
+            lblTrangThai.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblTrangThai.Location = new Point(15, 455);
+            lblTrangThai.Name = "lblTrangThai";
+            lblTrangThai.Size = new Size(790, 25);
+            lblTrangThai.TabIndex = 3;
+            lblTrangThai.Text = "Sẵn sàng";
+            // 
+            // Lab02_Bai04
+            // 
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(820, 485);
+            Controls.Add(lblTrangThai);
+            Controls.Add(grpXuat);
+            Controls.Add(grpNhap);
+            Controls.Add(lblTieuDe);
+            Name = "Lab02_Bai04";
+            Padding = new Padding(12);
+            Text = "Bài 4 - Đọc và Ghi file sử dụng JsonSerializer";
+            grpNhap.ResumeLayout(false);
+            grpNhap.PerformLayout();
+            grpXuat.ResumeLayout(false);
+            grpXuat.PerformLayout();
+            ResumeLayout(false);
+            PerformLayout();
+        }
+
+        #endregion
+
+        private Label lblTieuDe;
+        private GroupBox grpNhap;
+        private Label lblHoTenNhap;
+        private TextBox txtHoTenNhap;
+        private Label lblMssvNhap;
+        private TextBox txtMssvNhap;
+        private Label lblDienThoaiNhap;
+        private TextBox txtDienThoaiNhap;
+        private Label lblDiemMon1Nhap;
+        private TextBox txtDiemMon1Nhap;
+        private Label lblDiemMon2Nhap;
+        private TextBox txtDiemMon2Nhap;
+        private Label lblDiemMon3Nhap;
+        private TextBox txtDiemMon3Nhap;
+        private Button btnThem;
+        private Button btnGhiFile;
+        private GroupBox grpXuat;
+        private Button btnDocFile;
+        private Label lblHoTenXuat;
+        private TextBox txtHoTenXuat;
+        private Label lblMssvXuat;
+        private TextBox txtMssvXuat;
+        private Label lblDienThoaiXuat;
+        private TextBox txtDienThoaiXuat;
+        private Label lblDiemMon1Xuat;
+        private TextBox txtDiemMon1Xuat;
+        private Label lblDiemMon2Xuat;
+        private TextBox txtDiemMon2Xuat;
+        private Label lblDiemMon3Xuat;
+        private TextBox txtDiemMon3Xuat;
+        private Label lblDiemTbXuat;
+        private TextBox txtDiemTbXuat;
+        private Button btnBack;
+        private Button btnNext;
+        private Label lblSoTrang;
+        private Label lblTrangThai;
+    }
+}
