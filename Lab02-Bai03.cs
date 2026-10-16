@@ -1,9 +1,4 @@
-using System;
-using System.Collections.Generic;
 using System.Globalization;
-using System.IO;
-using System.Text;
-using System.Windows.Forms;
 
 namespace NT106.R14._1_Lab02_25521506
 {
@@ -22,12 +17,7 @@ namespace NT106.R14._1_Lab02_25521506
                 return;
             }
 
-            using (FileStream fs = new FileStream("input3.txt", FileMode.Open, FileAccess.Read))
-            using (StreamReader sr = new StreamReader(fs))
-            {
-                rtbThongTin.Text = sr.ReadToEnd();
-            }
-
+            rtbThongTin.Text = File.ReadAllText("input3.txt");
             lblTrangThai.Text = "Đã đọc input3.txt";
         }
 
@@ -41,47 +31,14 @@ namespace NT106.R14._1_Lab02_25521506
 
             try
             {
-                List<string> results = new List<string>();
+                List<string> ketQua = File.ReadAllLines("input3.txt")
+                    .Select(dong => dong.Trim())
+                    .Where(dong => dong.Length > 0)
+                    .Select(TinhDong)
+                    .ToList();
 
-                using (FileStream fsIn = new FileStream("input3.txt", FileMode.Open, FileAccess.Read))
-                using (StreamReader sr = new StreamReader(fsIn))
-                {
-                    string? line;
-                    while ((line = sr.ReadLine()) != null)
-                    {
-                        string trimmed = line.Trim();
-                        if (string.IsNullOrEmpty(trimmed))
-                        {
-                            continue;
-                        }
-
-                        try
-                        {
-                            double value = TinhBieuThuc(trimmed);
-                            string formattedVal = value.ToString("G", CultureInfo.InvariantCulture);
-                            results.Add($"{trimmed} = {formattedVal}");
-                        }
-                        catch (Exception ex)
-                        {
-                            results.Add($"{trimmed} = Lỗi ({ex.Message})");
-                        }
-                    }
-                }
-
-                using (FileStream fsOut = new FileStream("output3.txt", FileMode.Create, FileAccess.Write))
-                using (StreamWriter sw = new StreamWriter(fsOut))
-                {
-                    foreach (string res in results)
-                    {
-                        sw.WriteLine(res);
-                    }
-                }
-
-                using (FileStream fsRead = new FileStream("output3.txt", FileMode.Open, FileAccess.Read))
-                using (StreamReader sr = new StreamReader(fsRead))
-                {
-                    rtbThongTin.Text = sr.ReadToEnd();
-                }
+                File.WriteAllLines("output3.txt", ketQua);
+                rtbThongTin.Text = File.ReadAllText("output3.txt");
 
                 lblTrangThai.Text = "Đã tính và ghi vào output3.txt";
                 MessageBox.Show("Đã ghi kết quả tính toán xuống output3.txt thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -92,12 +49,23 @@ namespace NT106.R14._1_Lab02_25521506
             }
         }
 
+        private static string TinhDong(string dong)
+        {
+            try
+            {
+                double giaTri = TinhBieuThuc(dong);
+                return $"{dong} = {giaTri.ToString("G", CultureInfo.InvariantCulture)}";
+            }
+            catch (Exception ex)
+            {
+                return $"{dong} = Lỗi ({ex.Message})";
+            }
+        }
+
         public static double TinhBieuThuc(string bieuThuc)
         {
             string s = bieuThuc.Replace("–", "-").Replace("—", "-");
-            List<string> tokens = TachToken(s);
-            List<string> rpn = ChuyenSangHauTo(tokens);
-            return TinhHauTo(rpn);
+            return TinhHauTo(ChuyenSangHauTo(TachToken(s)));
         }
 
         private static List<string> TachToken(string s)
@@ -124,14 +92,14 @@ namespace NT106.R14._1_Lab02_25521506
 
                 if (c == '-')
                 {
-                    bool isUnary = (tokens.Count == 0 ||
-                                    tokens[^1] == "(" ||
-                                    tokens[^1] == "+" ||
-                                    tokens[^1] == "-" ||
-                                    tokens[^1] == "*" ||
-                                    tokens[^1] == "/");
+                    bool laSoAm = tokens.Count == 0
+                        || tokens[^1] == "("
+                        || tokens[^1] == "+"
+                        || tokens[^1] == "-"
+                        || tokens[^1] == "*"
+                        || tokens[^1] == "/";
 
-                    if (isUnary)
+                    if (laSoAm)
                     {
                         int start = i;
                         i++;
@@ -139,6 +107,7 @@ namespace NT106.R14._1_Lab02_25521506
                         {
                             i++;
                         }
+
                         if (i > start + 1)
                         {
                             tokens.Add(s.Substring(start, i - start));
@@ -158,6 +127,7 @@ namespace NT106.R14._1_Lab02_25521506
                     {
                         i++;
                     }
+
                     tokens.Add(s.Substring(start, i - start));
                     continue;
                 }
@@ -168,12 +138,8 @@ namespace NT106.R14._1_Lab02_25521506
             return tokens;
         }
 
-        private static int DoUuTien(string op)
-        {
-            if (op == "+" || op == "-") return 1;
-            if (op == "*" || op == "/") return 2;
-            return 0;
-        }
+        private static int DoUuTien(string op) =>
+            op == "+" || op == "-" ? 1 : op == "*" || op == "/" ? 2 : 0;
 
         private static List<string> ChuyenSangHauTo(List<string> tokens)
         {
@@ -201,7 +167,8 @@ namespace NT106.R14._1_Lab02_25521506
                     {
                         throw new Exception("Lỗi dấu ngoặc đơn không hợp lệ");
                     }
-                    stack.Pop(); // Bo dau '('
+
+                    stack.Pop();
                 }
                 else if (token == "+" || token == "-" || token == "*" || token == "/")
                 {
@@ -209,6 +176,7 @@ namespace NT106.R14._1_Lab02_25521506
                     {
                         output.Add(stack.Pop());
                     }
+
                     stack.Push(token);
                 }
             }
@@ -220,6 +188,7 @@ namespace NT106.R14._1_Lab02_25521506
                 {
                     throw new Exception("Lỗi dấu ngoặc đơn không hợp lệ");
                 }
+
                 output.Add(top);
             }
 
@@ -262,6 +231,7 @@ namespace NT106.R14._1_Lab02_25521506
                             {
                                 throw new Exception("Không thể chia cho 0");
                             }
+
                             stack.Push(a / b);
                             break;
                     }

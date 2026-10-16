@@ -1,25 +1,20 @@
-using System;
-using System.Collections.Generic;
-using System.IO;
 using System.Text.Encodings.Web;
 using System.Text.Json;
 using System.Text.Unicode;
-using System.Windows.Forms;
 
 namespace NT106.R14._1_Lab02_25521506
 {
     public partial class Lab02_Bai04 : Form
     {
-        [Serializable]
         public class SinhVien
         {
-            public string HoTen { get; set; } = string.Empty;
-            public int MSSV { get; set; }
-            public string DienThoai { get; set; } = string.Empty;
-            public float DiemMon1 { get; set; }
-            public float DiemMon2 { get; set; }
-            public float DiemMon3 { get; set; }
-            public float DiemTB { get; set; }
+            public string HoTen = string.Empty;
+            public int MSSV;
+            public string DienThoai = string.Empty;
+            public float DiemMon1;
+            public float DiemMon2;
+            public float DiemMon3;
+            public float DiemTB;
         }
 
         private List<SinhVien> danhSachNhap = new List<SinhVien>();
@@ -29,7 +24,8 @@ namespace NT106.R14._1_Lab02_25521506
         private static readonly JsonSerializerOptions jsonOptions = new JsonSerializerOptions
         {
             WriteIndented = true,
-            Encoder = JavaScriptEncoder.Create(UnicodeRanges.All)
+            Encoder = JavaScriptEncoder.Create(UnicodeRanges.All),
+            IncludeFields = true
         };
 
         public Lab02_Bai04()
@@ -47,15 +43,13 @@ namespace NT106.R14._1_Lab02_25521506
             string strDiem2 = txtDiemMon2Nhap.Text.Trim();
             string strDiem3 = txtDiemMon3Nhap.Text.Trim();
 
-            // Validate HoTen
-            if (string.IsNullOrEmpty(hoTen))
+            if (hoTen.Length == 0)
             {
                 MessageBox.Show("Vui lòng nhập Họ và tên sinh viên!", "Lỗi nhập liệu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtHoTenNhap.Focus();
                 return;
             }
 
-            // Validate MSSV: int, 8 chu so
             if (strMssv.Length != 8 || !int.TryParse(strMssv, out int mssv) || mssv < 10000000)
             {
                 MessageBox.Show("Mã số sinh viên phải là một số nguyên có đúng 8 chữ số!", "Lỗi nhập liệu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -63,7 +57,6 @@ namespace NT106.R14._1_Lab02_25521506
                 return;
             }
 
-            // Validate DienThoai: 10 chu so va bat dau bang 0
             if (dienThoai.Length != 10 || !dienThoai.StartsWith("0") || !long.TryParse(dienThoai, out _))
             {
                 MessageBox.Show("Số điện thoại phải có đúng 10 chữ số và bắt đầu bằng số 0!", "Lỗi nhập liệu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -71,7 +64,6 @@ namespace NT106.R14._1_Lab02_25521506
                 return;
             }
 
-            // Validate DiemMon1
             if (!float.TryParse(strDiem1, out float diem1) || diem1 < 0 || diem1 > 10)
             {
                 MessageBox.Show("Điểm môn 1 phải nằm trong khoảng từ 0 đến 10!", "Lỗi nhập liệu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -79,7 +71,6 @@ namespace NT106.R14._1_Lab02_25521506
                 return;
             }
 
-            // Validate DiemMon2
             if (!float.TryParse(strDiem2, out float diem2) || diem2 < 0 || diem2 > 10)
             {
                 MessageBox.Show("Điểm môn 2 phải nằm trong khoảng từ 0 đến 10!", "Lỗi nhập liệu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -87,7 +78,6 @@ namespace NT106.R14._1_Lab02_25521506
                 return;
             }
 
-            // Validate DiemMon3
             if (!float.TryParse(strDiem3, out float diem3) || diem3 < 0 || diem3 > 10)
             {
                 MessageBox.Show("Điểm môn 3 phải nằm trong khoảng từ 0 đến 10!", "Lỗi nhập liệu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -95,7 +85,7 @@ namespace NT106.R14._1_Lab02_25521506
                 return;
             }
 
-            SinhVien sv = new SinhVien
+            danhSachNhap.Add(new SinhVien
             {
                 HoTen = hoTen,
                 MSSV = mssv,
@@ -103,13 +93,11 @@ namespace NT106.R14._1_Lab02_25521506
                 DiemMon1 = diem1,
                 DiemMon2 = diem2,
                 DiemMon3 = diem3,
-                DiemTB = 0 // Khong nhap diem trung binh theo yeu cau
-            };
+                DiemTB = 0
+            });
 
-            danhSachNhap.Add(sv);
             lblTrangThai.Text = $"Đã thêm: {hoTen} (Tổng danh sách chờ ghi: {danhSachNhap.Count})";
 
-            // Xoa o nhap de nhap sinh vien tiep theo
             txtHoTenNhap.Clear();
             txtMssvNhap.Clear();
             txtDienThoaiNhap.Clear();
@@ -129,31 +117,11 @@ namespace NT106.R14._1_Lab02_25521506
 
             try
             {
-                // Ghi mảng sinh viên xuống input4.txt bằng JsonSerializer
-                using (FileStream fs = new FileStream("input4.txt", FileMode.Create, FileAccess.Write))
-                {
-                    JsonSerializer.Serialize(fs, danhSachNhap, jsonOptions);
-                }
+                GhiDanhSach("input4.txt", danhSachNhap);
 
-                // Đọc lại từ input4.txt, tính điểm trung bình cho từng sinh viên, ghi xuống output4.txt
-                List<SinhVien>? docTuInput;
-                using (FileStream fs = new FileStream("input4.txt", FileMode.Open, FileAccess.Read))
-                {
-                    docTuInput = JsonSerializer.Deserialize<List<SinhVien>>(fs, jsonOptions);
-                }
-
-                if (docTuInput != null)
-                {
-                    foreach (var sv in docTuInput)
-                    {
-                        sv.DiemTB = (float)Math.Round((sv.DiemMon1 + sv.DiemMon2 + sv.DiemMon3) / 3f, 2);
-                    }
-
-                    using (FileStream fs = new FileStream("output4.txt", FileMode.Create, FileAccess.Write))
-                    {
-                        JsonSerializer.Serialize(fs, docTuInput, jsonOptions);
-                    }
-                }
+                List<SinhVien> docTuInput = DocDanhSach("input4.txt");
+                docTuInput.ForEach(sv => sv.DiemTB = TinhDiemTrungBinh(sv));
+                GhiDanhSach("output4.txt", docTuInput);
 
                 lblTrangThai.Text = $"Đã ghi {danhSachNhap.Count} sinh viên vào input4.txt và tính điểm TB sang output4.txt";
                 MessageBox.Show($"Đã ghi {danhSachNhap.Count} sinh viên xuống input4.txt và tự động tính điểm TB lưu vào output4.txt!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -168,29 +136,13 @@ namespace NT106.R14._1_Lab02_25521506
         {
             if (!File.Exists("output4.txt"))
             {
-                // Neu chua co output4.txt nhung co input4.txt thi thu tu dong tinh tu input4.txt
                 if (File.Exists("input4.txt"))
                 {
                     try
                     {
-                        List<SinhVien>? docInput;
-                        using (FileStream fs = new FileStream("input4.txt", FileMode.Open, FileAccess.Read))
-                        {
-                            docInput = JsonSerializer.Deserialize<List<SinhVien>>(fs, jsonOptions);
-                        }
-
-                        if (docInput != null)
-                        {
-                            foreach (var sv in docInput)
-                            {
-                                sv.DiemTB = (float)Math.Round((sv.DiemMon1 + sv.DiemMon2 + sv.DiemMon3) / 3f, 2);
-                            }
-
-                            using (FileStream fs = new FileStream("output4.txt", FileMode.Create, FileAccess.Write))
-                            {
-                                JsonSerializer.Serialize(fs, docInput, jsonOptions);
-                            }
-                        }
+                        List<SinhVien> docInput = DocDanhSach("input4.txt");
+                        docInput.ForEach(sv => sv.DiemTB = TinhDiemTrungBinh(sv));
+                        GhiDanhSach("output4.txt", docInput);
                     }
                     catch { }
                 }
@@ -204,11 +156,7 @@ namespace NT106.R14._1_Lab02_25521506
 
             try
             {
-                using (FileStream fs = new FileStream("output4.txt", FileMode.Open, FileAccess.Read))
-                {
-                    danhSachXuat = JsonSerializer.Deserialize<List<SinhVien>>(fs, jsonOptions) ?? new List<SinhVien>();
-                }
-
+                danhSachXuat = DocDanhSach("output4.txt");
                 viTriHienTai = 0;
                 CapNhatHienThiXuat();
                 lblTrangThai.Text = $"Đã đọc {danhSachXuat.Count} sinh viên từ output4.txt";
@@ -241,21 +189,19 @@ namespace NT106.R14._1_Lab02_25521506
         {
             if (danhSachXuat.Count == 0)
             {
-                txtHoTenXuat.Clear();
-                txtMssvXuat.Clear();
-                txtDienThoaiXuat.Clear();
-                txtDiemMon1Xuat.Clear();
-                txtDiemMon2Xuat.Clear();
-                txtDiemMon3Xuat.Clear();
-                txtDiemTbXuat.Clear();
+                TextBox[] oXuat = { txtHoTenXuat, txtMssvXuat, txtDienThoaiXuat, txtDiemMon1Xuat, txtDiemMon2Xuat, txtDiemMon3Xuat, txtDiemTbXuat };
+                foreach (TextBox o in oXuat)
+                {
+                    o.Clear();
+                }
+
                 lblSoTrang.Text = "0 / 0";
                 btnBack.Enabled = false;
                 btnNext.Enabled = false;
                 return;
             }
 
-            if (viTriHienTai < 0) viTriHienTai = 0;
-            if (viTriHienTai >= danhSachXuat.Count) viTriHienTai = danhSachXuat.Count - 1;
+            viTriHienTai = Math.Clamp(viTriHienTai, 0, danhSachXuat.Count - 1);
 
             SinhVien sv = danhSachXuat[viTriHienTai];
             txtHoTenXuat.Text = sv.HoTen;
@@ -267,8 +213,27 @@ namespace NT106.R14._1_Lab02_25521506
             txtDiemTbXuat.Text = sv.DiemTB.ToString("F2");
 
             lblSoTrang.Text = $"{viTriHienTai + 1} / {danhSachXuat.Count}";
-            btnBack.Enabled = (viTriHienTai > 0);
-            btnNext.Enabled = (viTriHienTai < danhSachXuat.Count - 1);
+            btnBack.Enabled = viTriHienTai > 0;
+            btnNext.Enabled = viTriHienTai < danhSachXuat.Count - 1;
+        }
+
+        private static float TinhDiemTrungBinh(SinhVien sv) =>
+            (float)Math.Round((sv.DiemMon1 + sv.DiemMon2 + sv.DiemMon3) / 3f, 2);
+
+        private static List<SinhVien> DocDanhSach(string tenFile)
+        {
+            using (FileStream fs = new FileStream(tenFile, FileMode.Open, FileAccess.Read))
+            {
+                return JsonSerializer.Deserialize<List<SinhVien>>(fs, jsonOptions) ?? new List<SinhVien>();
+            }
+        }
+
+        private static void GhiDanhSach(string tenFile, List<SinhVien> danhSach)
+        {
+            using (FileStream fs = new FileStream(tenFile, FileMode.Create, FileAccess.Write))
+            {
+                JsonSerializer.Serialize(fs, danhSach, jsonOptions);
+            }
         }
     }
 }
