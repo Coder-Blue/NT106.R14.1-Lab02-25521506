@@ -14,5 +14,7 @@ namespace NT106.R14._1_Lab02_25521506
         private void btnBai3_Click(object sender, EventArgs e) => new Lab02_Bai03().Show();
 
         private void btnBai4_Click(object sender, EventArgs e) => new Lab02_Bai04().Show();
+
+        private void btnBai5_Click(object sender, EventArgs e) => new Lab02_Bai05().Show();
     }
 }
