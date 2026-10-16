@@ -121,6 +121,7 @@ namespace NT106.R14._1_Lab02_25521506
             btnBai7.TabIndex = 6;
             btnBai7.Text = "Bài 7";
             btnBai7.UseVisualStyleBackColor = true;
+            btnBai7.Click += btnBai7_Click;
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(472, 300);
