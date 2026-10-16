@@ -2,3 +2,11 @@
 .vs/
 bin/
 obj/
+
+# Agent skills
+.agents/
+.gemini/
+skills-lock.json
+
+# PDF files
+*.pdf

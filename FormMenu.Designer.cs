@@ -99,6 +99,7 @@ namespace NT106.R14._1_Lab02_25521506
             btnBai2.TabIndex = 1;
             btnBai2.Text = "Bài 2";
             btnBai2.UseVisualStyleBackColor = true;
+            btnBai2.Click += btnBai2_Click;
             // 
             // btnBai3
             // 
