@@ -112,6 +112,7 @@ namespace NT106.R14._1_Lab02_25521506
             btnBai6.TabIndex = 5;
             btnBai6.Text = "Bài 6";
             btnBai6.UseVisualStyleBackColor = true;
+            btnBai6.Click += btnBai6_Click;
             btnBai7.Dock = DockStyle.Fill;
             btnBai7.Location = new Point(12, 195);
             btnBai7.Margin = new Padding(3, 3, 3, 8);

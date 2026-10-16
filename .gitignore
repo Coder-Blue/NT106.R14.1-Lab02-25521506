@@ -10,3 +10,6 @@ skills-lock.json
 
 # PDF files
 *.pdf
+
+# Runtime SQLite database
+homnayangi.db
