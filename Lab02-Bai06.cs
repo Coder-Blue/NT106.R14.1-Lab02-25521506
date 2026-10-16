@@ -166,7 +166,10 @@ namespace NT106.R14._1_Lab02_25521506
         private void HienThiHinh(string duongDan)
         {
             Image? hinhCu = picMonAn.Image;
-            picMonAn.Image = File.Exists(duongDan) ? TaiHinh(duongDan) : null;
+
+            string duongDanHienThi = File.Exists(duongDan) ? duongDan : Path.Combine("hinh-anh", "default.png");
+            picMonAn.Image = File.Exists(duongDanHienThi) ? TaiHinh(duongDanHienThi) : null;
+
             hinhCu?.Dispose();
         }
 
